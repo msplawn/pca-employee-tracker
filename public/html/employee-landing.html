@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <title>PCA Storm Timesheet</title>
+</head>
+
+<body>
+  <header>
+    <!-- company logo ? -->
+    <h1 class="ui red header medium center aligned segment"><i class="umbrella icon small"></i>PCA Storm Timesheet</h1>
+  </header>
+  <main>
+    <div class="ui form center aligned raised segment">
+
+      <div class="field">
+        <label>Classification</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="job-type">
+          <i class="dropdown icon"></i>
+          <div class="default text">Classification</div>
+          <div class="menu">
+            <div class="item" value="sv">Supervisor</div>
+            <div class="item" value="tl">Team Leader</div>
+            <div class="item" value="da">Damage Assessor</div>
+            <div class="item" value="dr">Driver</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Type of Work</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="work-type">
+          <i class="dropdown icon"></i>
+          <div class="default text">Type of Work</div>
+          <div class="menu">
+            <div class="item" value="m">Mob</div>
+            <div class="item" value="d">Demob</div>
+            <div class="item" value="w">Work</div>
+            <div class="item" value="s">Standby</div>
+          </div>
+        </div>
+      </div>
+
+        <div class="field">
+          <label>Start Time</label>
+          <select class="ui dropdown">
+            <option value="">Select Time</option>
+            <option value="0">0000/0024 12:00am</option>
+            <option value="1">0100 1:00am</option>
+            <option value="2">0200 2:00am</option>
+            <option value="3">0300 3:00am</option>
+            <option value="4">0400 4:00am</option>
+            <option value="5">0500 5:00am</option>
+            <option value="6">0600 6:00am</option>
+            <option value="7">0700 7:00am</option>
+            <option value="8">0800 8:00am</option>
+            <option value="9">0900 9:00am</option>
+            <option value="10">1000 10:00am</option>
+            <option value="11">1100 11:00am</option>
+            <option value="12">1200 12:00pm</option>
+            <option value="13">1300 1:00pm</option>
+            <option value="14">1400 2:00pm</option>
+            <option value="15">1500 3:00pm</option>
+            <option value="16">1600 4:00pm</option>
+            <option value="17">1700 5:00pm</option>
+            <option value="18">1800 6:00pm</option>
+            <option value="19">1900 7:00pm</option>
+            <option value="20">2000 8:00pm</option>
+            <option value="21">2100 9:00pm</option>
+            <option value="22">2200 10:00pm</option>
+            <option value="23">2300 11:00pm</option>
+          </select>
+        </div>
+
+        <div class="field" id="end-time">
+          <label>End Time</label>
+          <select class="ui dropdown">
+            <option value="">Select Time</option>
+            <option value="0">0000/0024 12:00am</option>
+            <option value="1">0100 1:00am</option>
+            <option value="2">0200 2:00am</option>
+            <option value="3">0300 3:00am</option>
+            <option value="4">0400 4:00am</option>
+            <option value="5">0500 5:00am</option>
+            <option value="6">0600 6:00am</option>
+            <option value="7">0700 7:00am</option>
+            <option value="8">0800 8:00am</option>
+            <option value="9">0900 9:00am</option>
+            <option value="10">1000 10:00am</option>
+            <option value="11">1100 11:00am</option>
+            <option value="12">1200 12:00pm</option>
+            <option value="13">1300 1:00pm</option>
+            <option value="14">1400 2:00pm</option>
+            <option value="15">1500 3:00pm</option>
+            <option value="16">1600 4:00pm</option>
+            <option value="17">1700 5:00pm</option>
+            <option value="18">1800 6:00pm</option>
+            <option value="19">1900 7:00pm</option>
+            <option value="20">2000 8:00pm</option>
+            <option value="21">2100 9:00pm</option>
+            <option value="22">2200 10:00pm</option>
+            <option value="23">2300 11:00pm</option>
+          </select>
+        </div>
+
+      <div class="field">
+        <label>Number of Per Diem Meals</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="meals">
+          <i class="dropdown icon"></i>
+          <div class="default text">Number of Meals</div>
+          <div class="menu">
+            <div class="item" data-value="0">0</div>
+            <div class="item" data-value="1">1</div>
+            <div class="item" data-value="2">2</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Once selections from all dropdown menus are completed click button to log new shift</label>
+        <div>
+          <button class="ui button small">Log New Shift</button>
+          <button class="ui button small">View Logged Shifts</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+
+</html>
