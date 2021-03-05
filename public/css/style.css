@@ -1,0 +1,35 @@
+.em-form {
+  height: 91.7vh;
+}
+
+.login-form {
+  height: 87.5vh;
+}
+
+/* ----------------------- */
+
+/* main {
+  display:flex;
+  flex-direction:column;
+}
+
+.form {
+  flex: 1;
+} */
+
+/* ------------------------ */
+
+.selection, button, .sign-in {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+h1 {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2) !important;
+  /* -webkit-text-stroke-width: 1px !important;
+  -webkit-text-stroke-color: black !important; */
+}
+
+/* .umbrella {
+  font-size: 100% !important;
+  overflow: hidden;
+} */
