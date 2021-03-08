@@ -1,7 +1,17 @@
 // importing required dependencies
 const express = require("express");
+const session = require("express-session");
+const flash = require("connect-flash");
+const logger = require("morgan");
+
 const PORT = process.env.PORT || 3001;
 const mongoose = require("mongoose");
+const routes = require('./routes');
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+
+
+
 const app = express();
 
 require("dotenv").config();
@@ -10,6 +20,23 @@ require("dotenv").config();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Configure passport-local to use account model for authentication
+const User = require('./models/User');
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+app.use(routes);
 
 
 // Connect to the Mongo DB, handle depreciation warnings
