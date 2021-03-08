@@ -65,6 +65,7 @@ router.post("/signup", (req, res, next) => {
       // Otherwise send back the user's username and name
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
+        id: req.user._id,
         username: req.user.username,
         firstName: req.user.firstName,
         lastName: req.user.lastName,

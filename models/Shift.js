@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 // model for candidates
 const shiftSchema = new Schema(
   {
+    userId: {
+      type: String,
+      required: true,
+    },
     date: {
       type: Date,
       required: true,
