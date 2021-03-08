@@ -1,9 +1,11 @@
 // importing required dependency
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const passportLocalMongoose = require("passport-local-mongoose");
+
 
 // model for users
-const userSchema = new Schema({
+const User = new Schema({
   username: {
     type: String,
     min: 6,
@@ -34,5 +36,7 @@ const userSchema = new Schema({
   },
 });
 
+User.plugin(passportLocalMongoose);
+
 // exporting model to be used in other parts of the application
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", User);

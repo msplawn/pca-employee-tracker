@@ -8,7 +8,16 @@ const stormSchema = new Schema({
     type: String,
     min: 6,
     required: true,
-  },
+    },
+    date: {
+        type: String,
+    },
+    supervisor: {
+        type: String,
+    },
+    teamLeader: {
+        type: String,
+    },
   //referencing shifts inside of a storm
   shifts: [
     {
