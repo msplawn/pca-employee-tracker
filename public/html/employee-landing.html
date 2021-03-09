@@ -11,15 +11,28 @@
 </head>
 
 <body>
-  <header class="">
+  <header>
     <!-- company logo ? -->
-    <h1 class="ui red header medium center aligned segment">
+    <h1 class="ui header medium center aligned segment">
       <i class="umbrella icon"></i>
       PCA Storm Timesheet
     </h1>
   </header>
   <main>
-    <div class="ui form center aligned segment em-form">
+    <div class="ui form center aligned raised segment em-form">
+      <div class="field">
+        <label>Choose a Storm</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="job-type">
+          <i class="dropdown icon"></i>
+          <div class="default text">Storms</div>
+          <div class="menu">
+            <div class="item" value="texas-ice-storm">Texas Ice Storm</div>
+            <div class="item" value="kansas-tornado">Kansas Tornado</div>
+            <div class="item" value="mississippi-hurricane">Mississippi Hurricane</div>
+          </div>
+        </div>
+      </div>
 
       <div class="field">
         <label>Classification</label>
@@ -28,10 +41,10 @@
           <i class="dropdown icon"></i>
           <div class="default text">Classification</div>
           <div class="menu">
-            <div class="item" value="sv">Supervisor</div>
-            <div class="item" value="tl">Team Leader</div>
-            <div class="item" value="da">Damage Assessor</div>
-            <div class="item" value="dr">Driver</div>
+            <div class="item" value="supervisor">Supervisor</div>
+            <div class="item" value="team-leader">Team Leader</div>
+            <div class="item" value="damage-assessor">Damage Assessor</div>
+            <div class="item" value="driver">Driver</div>
           </div>
         </div>
       </div>
@@ -43,10 +56,10 @@
           <i class="dropdown icon"></i>
           <div class="default text">Type of Work</div>
           <div class="menu">
-            <div class="item" value="m">Mob</div>
-            <div class="item" value="d">Demob</div>
-            <div class="item" value="w">Work</div>
-            <div class="item" value="s">Standby</div>
+            <div class="item" value="mob">Mob</div>
+            <div class="item" value="demob">Demob</div>
+            <div class="item" value="work">Work</div>
+            <div class="item" value="standby">Standby</div>
           </div>
         </div>
       </div>
@@ -55,30 +68,30 @@
           <label>Start Time</label>
           <select class="ui dropdown">
             <option value="">Select Time</option>
-            <option value="0">0000/0024 12:00am</option>
-            <option value="1">0100 1:00am</option>
-            <option value="2">0200 2:00am</option>
-            <option value="3">0300 3:00am</option>
-            <option value="4">0400 4:00am</option>
-            <option value="5">0500 5:00am</option>
-            <option value="6">0600 6:00am</option>
-            <option value="7">0700 7:00am</option>
-            <option value="8">0800 8:00am</option>
-            <option value="9">0900 9:00am</option>
-            <option value="10">1000 10:00am</option>
-            <option value="11">1100 11:00am</option>
-            <option value="12">1200 12:00pm</option>
-            <option value="13">1300 1:00pm</option>
-            <option value="14">1400 2:00pm</option>
-            <option value="15">1500 3:00pm</option>
-            <option value="16">1600 4:00pm</option>
-            <option value="17">1700 5:00pm</option>
-            <option value="18">1800 6:00pm</option>
-            <option value="19">1900 7:00pm</option>
-            <option value="20">2000 8:00pm</option>
-            <option value="21">2100 9:00pm</option>
-            <option value="22">2200 10:00pm</option>
-            <option value="23">2300 11:00pm</option>
+            <option value="0000">0000/2400 12:00am</option>
+            <option value="0100">0100 1:00am</option>
+            <option value="0200">0200 2:00am</option>
+            <option value="0300">0300 3:00am</option>
+            <option value="0400">0400 4:00am</option>
+            <option value="0500">0500 5:00am</option>
+            <option value="0600">0600 6:00am</option>
+            <option value="0700">0700 7:00am</option>
+            <option value="0800">0800 8:00am</option>
+            <option value="0900">0900 9:00am</option>
+            <option value="1000">1000 10:00am</option>
+            <option value="1100">1100 11:00am</option>
+            <option value="1200">1200 12:00pm</option>
+            <option value="1300">1300 1:00pm</option>
+            <option value="1400">1400 2:00pm</option>
+            <option value="1500">1500 3:00pm</option>
+            <option value="1600">1600 4:00pm</option>
+            <option value="1700">1700 5:00pm</option>
+            <option value="1800">1800 6:00pm</option>
+            <option value="1900">1900 7:00pm</option>
+            <option value="2000">2000 8:00pm</option>
+            <option value="2100">2100 9:00pm</option>
+            <option value="2200">2200 10:00pm</option>
+            <option value="2300">2300 11:00pm</option>
           </select>
         </div>
 
@@ -86,32 +99,46 @@
           <label>End Time</label>
           <select class="ui dropdown">
             <option value="">Select Time</option>
-            <option value="0">0000/0024 12:00am</option>
-            <option value="1">0100 1:00am</option>
-            <option value="2">0200 2:00am</option>
-            <option value="3">0300 3:00am</option>
-            <option value="4">0400 4:00am</option>
-            <option value="5">0500 5:00am</option>
-            <option value="6">0600 6:00am</option>
-            <option value="7">0700 7:00am</option>
-            <option value="8">0800 8:00am</option>
-            <option value="9">0900 9:00am</option>
-            <option value="10">1000 10:00am</option>
-            <option value="11">1100 11:00am</option>
-            <option value="12">1200 12:00pm</option>
-            <option value="13">1300 1:00pm</option>
-            <option value="14">1400 2:00pm</option>
-            <option value="15">1500 3:00pm</option>
-            <option value="16">1600 4:00pm</option>
-            <option value="17">1700 5:00pm</option>
-            <option value="18">1800 6:00pm</option>
-            <option value="19">1900 7:00pm</option>
-            <option value="20">2000 8:00pm</option>
-            <option value="21">2100 9:00pm</option>
-            <option value="22">2200 10:00pm</option>
-            <option value="23">2300 11:00pm</option>
+            <option value="0000">0000/2400 12:00am</option>
+            <option value="0100">0100 1:00am</option>
+            <option value="0200">0200 2:00am</option>
+            <option value="0300">0300 3:00am</option>
+            <option value="0400">0400 4:00am</option>
+            <option value="0500">0500 5:00am</option>
+            <option value="0600">0600 6:00am</option>
+            <option value="0700">0700 7:00am</option>
+            <option value="0800">0800 8:00am</option>
+            <option value="0900">0900 9:00am</option>
+            <option value="1000">1000 10:00am</option>
+            <option value="1100">1100 11:00am</option>
+            <option value="1200">1200 12:00pm</option>
+            <option value="1300">1300 1:00pm</option>
+            <option value="1400">1400 2:00pm</option>
+            <option value="1500">1500 3:00pm</option>
+            <option value="1600">1600 4:00pm</option>
+            <option value="1700">1700 5:00pm</option>
+            <option value="1800">1800 6:00pm</option>
+            <option value="1900">1900 7:00pm</option>
+            <option value="2000">2000 8:00pm</option>
+            <option value="2100">2100 9:00pm</option>
+            <option value="2200">2200 10:00pm</option>
+            <option value="2300">2300 11:00pm</option>
           </select>
         </div>
+
+        <div class="field">
+          <label>Number of Meals Provided by Utility</label>
+          <div class="ui selection dropdown">
+            <input type="hidden" name="meals">
+            <i class="dropdown icon"></i>
+            <div class="default text">Number of Meals</div>
+            <div class="menu">
+              <div class="item" data-value="0">0</div>
+              <div class="item" data-value="1">1</div>
+              <div class="item" data-value="2">2</div>
+            </div>
+          </div>
+        </div>  
 
       <div class="field">
         <label>Number of Per Diem Meals</label>
@@ -128,10 +155,10 @@
       </div>
 
       <div class="field">
-        <label>Once selections from all dropdown menus are completed click Log New Shift</label>
+        <label class="instructions">Once selections from all dropdown menus are completed click Log New Shift</label>
         <div>
           <button class="ui button small">Log New Shift</button>
-          <button class="ui button small">View Logged Shifts</button>
+          <!-- <button class="ui button small">View Logged Shifts</button> -->
         </div>
       </div>
 
@@ -140,7 +167,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-  <script src="../js/script.js"></script>
+  <script src="../js/employee.js"></script>
 </body>
 
 </html>

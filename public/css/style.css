@@ -1,35 +1,61 @@
-.em-form {
+/* current method of stretching form to fit full screen */
+/* works well on iphone x, varies by phone type */
+/* ideally should fit to all screen sizes without scrolling to blank space */
+
+/* .em-form {
   height: 91.7vh;
 }
 
 .login-form {
   height: 87.5vh;
-}
-
-/* ----------------------- */
-
-/* main {
-  display:flex;
-  flex-direction:column;
-}
-
-.form {
-  flex: 1;
 } */
 
-/* ------------------------ */
-
-.selection, button, .sign-in {
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2) !important;
-}
-
-h1 {
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2) !important;
-  /* -webkit-text-stroke-width: 1px !important;
-  -webkit-text-stroke-color: black !important; */
-}
+/* ----------------------- */
 
 /* .umbrella {
   font-size: 100% !important;
   overflow: hidden;
 } */
+
+h1, .modal-header {
+  color: rgb(180, 0, 0) !important;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.selection, button, .sign-in, .storm-list {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+label {
+  color: rgb(120, 120, 120) !important;
+}
+
+.modal-sub, .instructions {
+  color: rgb(160, 160, 160) !important;
+}
+
+.storm-container {
+  display: flex;
+  justify-content: center;
+}
+
+.storm-list {
+  margin-top: 15vh;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 15px;
+  overflow: hidden;
+  width: 40vw;
+}
+
+.storms-header {
+  padding: 20px 0 0 15px !important;
+}
+
+.alternative {
+  padding: 8px 2px 0 5px !important;
+}
+
+a {
+  color:black !important;
+}
