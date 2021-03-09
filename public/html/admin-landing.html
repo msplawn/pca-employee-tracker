@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <title>PCA Storm Admin Landing</title>
+</head>
+
+<body>
+  <header>
+    <!-- company logo ? -->
+    <h1 class="ui header center aligned raised segment"><i class="umbrella icon"></i>PCA Storm Timesheet Administrative
+      Landing</h1>
+  </header>
+
+  <main>
+    <div class="ui menu">
+      <div class="item header">
+        Storms
+      </div>
+      <a class="item">
+        Create New Storm
+      </a>
+      <a class="item">
+        Create New Employee
+      </a>
+    </div>
+
+    <div class="storm-container">
+      <div class="storm-list">
+        <!-- Scrolling div which displays list of saved storms, 
+          clicking on one opens the spreadsheet page 
+          with button to download .xlsx file -->
+        <div class="ui celled list">
+          <div class="ui header large storms-header">All Storms</div>
+          <div class="item">
+            <i class="file alternative outline icon"></i>
+            <div class="content">
+              <div class="header">
+                <a>Texas Ice Storm</a>
+              </div>
+              February 2021
+            </div>
+          </div>
+          <div class="item">
+            <i class="file alternative outline icon"></i>
+            <div class="content">
+              <div class="header">
+                <a>Kansas Tornado</a>
+              </div>
+              March 2021
+            </div>
+          </div>
+          <div class="item">
+            <i class="file alternative outline icon"></i>
+            <div class="content">
+              <div class="header">
+                <a>Mississippi Hurricane</a>
+              </div>
+              April 2021
+            </div>
+          </div>
+          <div class="item">
+            <i class="file alternative outline icon"></i>
+            <div class="content">
+              <div class="header">
+                <a>Texas Ice Storm</a>
+              </div>
+              February 2021
+            </div>
+          </div>
+          <div class="item">
+            <i class="file alternative outline icon"></i>
+            <div class="content">
+              <div class="header">
+                <a>Kansas Tornado</a>
+              </div>
+              March 2021
+            </div>
+          </div>
+          <div class="item">
+            <i class="file alternative outline icon"></i>
+            <div class="content">
+              <div class="header">
+                <a>Mississippi Hurricane</a>
+              </div>
+              April 2021
+            </div>
+          </div>
+          <div class="item">
+            <i class="file alternative outline icon"></i>
+            <div class="content">
+              <div class="header">
+                <a>Texas Ice Storm</a>
+              </div>
+              February 2021
+            </div>
+          </div>
+          <div class="item">
+            <i class="file alternative outline icon"></i>
+            <div class="content">
+              <div class="header">
+                <a>Kansas Tornado</a>
+              </div>
+              March 2021
+            </div>
+          </div>
+          <div class="item">
+            <i class="file alternative outline icon"></i>
+            <div class="content">
+              <div class="header">
+                <a>Mississippi Hurricane</a>
+              </div>
+              April 2021
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Storm Modal -->
+    <!-- <div class="ui modal">
+      <i class="close icon"></i>
+      <div class="header modal-header">
+        Create New Storm
+      </div>
+      <div class="content">
+        <div class="description">
+          <div class="ui header modal-sub">Creates a new table to store shifts logged in the field</div>
+          <div class="ui large form">
+            <div class="two fields">
+              <div class="field">
+                <label>Storm Name</label>
+                <input placeholder="Storm" type="text">
+              </div>
+              <div class="field">
+                <label>Utility Name</label>
+                <input placeholder="Utility" type="text">
+              </div>
+            </div>
+          </div> 
+          <div class="ui large form">
+            <div class="two fields">
+              <div class="field">
+                <label>Supervisor</label>
+                <input placeholder="Supervisor" type="text">
+              </div>
+              <div class="field">
+                <label>Team Leader</label>
+                <input placeholder="Team Leader" type="text">
+              </div>
+            </div>
+          </div>        
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui gray right labeled icon button">
+          Submit
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- New Employee Modal -->
+    <div class="ui modal">
+      <i class="close icon"></i>
+      <div class="header modal-header">
+        Create New Employee
+      </div>
+      <div class="content">
+        <div class="description">
+          <div class="ui header modal-sub">Creates a new username, password, and associated details</div>
+          <div class="ui large form">
+            <div class="two fields">
+              <div class="field">
+                <label>Username</label>
+                <input placeholder="user1234" type="text">
+              </div>
+              <div class="field">
+                <label>Password</label>
+                <input placeholder="password" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="ui large form">
+            <div class="two fields">
+              <div class="field">
+                <label>First Name</label>
+                <input placeholder="First Name" type="text">
+              </div>
+              <div class="field">
+                <label>Last Name</label>
+                <input placeholder="Last Name" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="ui large form">
+            <div class="two fields">
+              <div class="field">
+                <label>Equipment Description</label>
+                <input placeholder="Equipment Description" type="text">
+              </div>
+              <div class="field">
+                <label>Equip # (last 5 of VIN)</label>
+                <input placeholder="12345" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="ui checkbox">
+            <input type="checkbox" tabindex="0" class="hidden">
+            <label>Personal Vehicle</label>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui gray right labeled icon button">
+          Submit
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+
+</html>
