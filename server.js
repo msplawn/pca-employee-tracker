@@ -12,7 +12,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 
 
-
 const app = express();
 
 require("dotenv").config();
