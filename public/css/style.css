@@ -59,3 +59,7 @@ label {
 a {
   color:black !important;
 }
+
+.dropdown {
+  max-width: 500px;
+}
