@@ -1,3 +1,5 @@
+const shiftController = require("../../controllers/shiftController");
+
 $(document).ready(() => {
   console.log("hello")
   $('.ui.dropdown')
@@ -14,5 +16,7 @@ $(document).ready(() => {
     logData.perDiemMeals = $('#per-diem-meal-drop').dropdown('get value');
 
     console.log(logData);
+
+    shiftController.createShift(logData);
   })
 })
