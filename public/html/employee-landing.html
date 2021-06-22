@@ -22,11 +22,11 @@
     <div class="ui form center aligned raised segment em-form">
       <div class="field">
         <label>Choose a Storm</label>
-        <div class="ui selection dropdown">
+        <div class="ui selection dropdown" id="storm-drop">
           <input type="hidden" name="job-type">
           <i class="dropdown icon"></i>
           <div class="default text">Storms</div>
-          <div class="menu">
+          <div class="menu" id="storms">
             <div class="item" value="texas-ice-storm">Texas Ice Storm</div>
             <div class="item" value="kansas-tornado">Kansas Tornado</div>
             <div class="item" value="mississippi-hurricane">Mississippi Hurricane</div>
@@ -36,7 +36,7 @@
 
       <div class="field">
         <label>Classification</label>
-        <div class="ui selection dropdown">
+        <div class="ui selection dropdown" id="classification-drop">
           <input type="hidden" name="job-type">
           <i class="dropdown icon"></i>
           <div class="default text">Classification</div>
@@ -51,7 +51,7 @@
 
       <div class="field">
         <label>Type of Work</label>
-        <div class="ui selection dropdown">
+        <div class="ui selection dropdown" id="work-drop">
           <input type="hidden" name="work-type">
           <i class="dropdown icon"></i>
           <div class="default text">Type of Work</div>
@@ -66,7 +66,7 @@
 
         <div class="field">
           <label>Start Time</label>
-          <select class="ui dropdown">
+          <select class="ui dropdown" id="start-drop">
             <option value="">Select Time</option>
             <option value="0000">0000/2400 12:00am</option>
             <option value="0100">0100 1:00am</option>
@@ -97,7 +97,7 @@
 
         <div class="field" id="end-time">
           <label>End Time</label>
-          <select class="ui dropdown">
+          <select class="ui dropdown" id="end-drop">
             <option value="">Select Time</option>
             <option value="0000">0000/2400 12:00am</option>
             <option value="0100">0100 1:00am</option>
@@ -128,7 +128,7 @@
 
         <div class="field">
           <label>Number of Meals Provided by Utility</label>
-          <div class="ui selection dropdown">
+          <div class="ui selection dropdown" id="utility-meal-drop">
             <input type="hidden" name="meals">
             <i class="dropdown icon"></i>
             <div class="default text">Number of Meals</div>
@@ -142,7 +142,7 @@
 
       <div class="field">
         <label>Number of Per Diem Meals</label>
-        <div class="ui selection dropdown">
+        <div class="ui selection dropdown" id="per-diem-meal-drop">
           <input type="hidden" name="meals">
           <i class="dropdown icon"></i>
           <div class="default text">Number of Meals</div>
@@ -157,7 +157,7 @@
       <div class="field">
         <label class="instructions">Once selections from all dropdown menus are completed click Log New Shift</label>
         <div>
-          <button class="ui button small">Log New Shift</button>
+          <button class="ui button small" id="log-submit">Log New Shift</button>
           <!-- <button class="ui button small">View Logged Shifts</button> -->
         </div>
       </div>
