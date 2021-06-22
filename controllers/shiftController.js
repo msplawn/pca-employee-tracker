@@ -30,6 +30,7 @@ const shiftController = {
   
   async createShift(req, res) {
     try {
+      console.log(req);
       const dbShiftData = await Shift.create(req.body);
 
       await User.findOneAndUpdate(

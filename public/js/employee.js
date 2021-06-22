@@ -1,4 +1,4 @@
-const shiftController = require("../../controllers/shiftController");
+// const shiftController = require("../../controllers/shiftController");
 
 $(document).ready(() => {
   console.log("hello")
@@ -7,7 +7,7 @@ $(document).ready(() => {
 
   $("#log-submit").on("click", () => {
     let logData = {};
-    logData.storm = $('#storm-drop').dropdown('get value');
+    logData.storm = $('.ui.dropdown#storm-drop').dropdown('get value');
     logData.classification = $('#classification-drop').dropdown('get value');
     logData.workType = $('#work-drop').dropdown('get value');
     logData.startTime = $('#start-drop').dropdown('get value');
