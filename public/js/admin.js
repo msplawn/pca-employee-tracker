@@ -1,4 +1,56 @@
 $(document).ready(() => {
+
+  //Populates Storms From Database
+  fetch("/api/data/storms" , {
+    method: "get",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json"
+    }
+  })
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    console.log(data)
+    data.forEach(storm => {
+      console.log(storm.stormName);
+      
+      const stormContainer = `
+      <div class="item">
+        <i class="file alternative outline icon"></i>
+        <div class="content">
+          <div class="header">
+            <a>${storm.stormName}</a>
+          </div>
+            February 2021
+        </div>
+        <i class="trash alternate outline icon" id="delete-storm"></i>
+      </div>
+      `
+      $('#stormsEl').append(stormContainer);
+
+    });
+    // Attempting to delete storms on icon click
+      $('#delete-storm').on("click", () => {
+        console.log("Trash")
+        fetch("/api/shift/storm:stormId", {
+          method: "delete",
+          // body: JSON.stringify(newEmployeeData),
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+          }
+        })
+          .then(response => {
+            return response.json();
+          })
+          .then(data => {
+            console.log(data)
+          })
+      })
+  });
+
   //   $('.ui.modal')
   //   .modal('show')
   // ;
@@ -81,10 +133,7 @@ $(document).ready(() => {
       })
       .then(data => {
         console.log(data)
-        // const dataDiv = document.createElement("div");
-        // $("#test").append(dataDiv);
-
-        // dataDiv.textContent = data.message;
+        location.reload();
       })
     });
   };
