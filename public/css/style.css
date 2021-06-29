@@ -63,3 +63,7 @@ a {
 .dropdown {
   max-width: 500px;
 }
+
+.hide {
+  display: none;
+}

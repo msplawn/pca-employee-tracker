@@ -25,7 +25,7 @@
       <a class="item">
         Create New Storm
       </a>
-      <a class="item">
+      <a class="item" id="new-employee">
         Create New Employee
       </a>
     </div>
@@ -178,11 +178,11 @@
             <div class="two fields">
               <div class="field">
                 <label>Username</label>
-                <input placeholder="user1234" type="text">
+                <input placeholder="user1234" type="text" id="username">
               </div>
               <div class="field">
                 <label>Password</label>
-                <input placeholder="password" type="text">
+                <input placeholder="password" type="text" id="password">
               </div>
             </div>
           </div>
@@ -190,11 +190,11 @@
             <div class="two fields">
               <div class="field">
                 <label>First Name</label>
-                <input placeholder="First Name" type="text">
+                <input placeholder="First Name" type="text" id="first-name">
               </div>
               <div class="field">
                 <label>Last Name</label>
-                <input placeholder="Last Name" type="text">
+                <input placeholder="Last Name" type="text" id="last-name">
               </div>
             </div>
           </div>
@@ -202,22 +202,22 @@
             <div class="two fields">
               <div class="field">
                 <label>Equipment Description</label>
-                <input placeholder="Equipment Description" type="text">
+                <input placeholder="Equipment Description" type="text" id="equipment-description">
               </div>
               <div class="field">
                 <label>Equip # (last 5 of VIN)</label>
-                <input placeholder="12345" type="text">
+                <input placeholder="12345" type="text" id="equipment-number">
               </div>
             </div>
           </div>
           <div class="ui checkbox">
-            <input type="checkbox" tabindex="0" class="hidden">
+            <input type="checkbox" tabindex="0" class="hidden" id="personal-vehicle">
             <label>Personal Vehicle</label>
           </div>
         </div>
       </div>
       <div class="actions">
-        <div class="ui gray right labeled icon button">
+        <div id="submit-employee" class="ui gray right labeled icon button">
           Submit
           <i class="checkmark icon"></i>
         </div>

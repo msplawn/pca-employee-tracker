@@ -5,12 +5,24 @@ const Schema = mongoose.Schema;
 // model for candidates
 const shiftSchema = new Schema(
   {
-    userId: {
+    // userId: {
+    //   type: String,
+    //   required: true,
+    // },
+    // date: {
+    //   type: Date,
+    //   required: true,
+    // },
+    storm: {
       type: String,
       required: true,
     },
-    date: {
-      type: Date,
+    classification: {
+      type: String,
+      required: true,
+    },
+    workType: {
+      type: String,
       required: true,
     },
     start: {
@@ -19,17 +31,16 @@ const shiftSchema = new Schema(
     },
     end: {
       type: String,
+      required: true,
     },
-    jobCode: {
-      type: String,
+    utilityMeals: {
+      type: Number,
+      required: true,
     },
-    meal: {
-        type: Boolean,
-        required: true,
-        },
-    mealCost: {
-        type: Number,
-    }
+    perDiemMeals: {
+      type: Number,
+      required: true,
+    },
   },
   {
     timestamps: true,
