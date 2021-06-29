@@ -13,6 +13,7 @@ const {
 
 router.route('/storm').post(createStorm).get(getAllStorms);
 
+
 router.route('/storm/:stormId').get(getStormWithShifts);
 
 router.route('/shift').post(createShift).get(getAllShifts);
