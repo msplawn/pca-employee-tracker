@@ -63,10 +63,29 @@ $(document).ready(() => {
       let newStormData = {};
       newStormData.stormName = $('#storm-name').val();
       newStormData.utilityName = $('#utility-name').val();
-      newStormData.supervisorName = $('#supervisor-name').val();
-      newStormData.teamLeaderName = $('#team-leader-name').val();
+      newStormData.supervisor = $('#supervisor-name').val();
+      newStormData.teamLeader = $('#team-leader-name').val();
    
       console.log(newStormData);
+
+      fetch("/api/data/storm" , {
+        method: "post",
+        body: JSON.stringify(newStormData),
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data)
+        // const dataDiv = document.createElement("div");
+        // $("#test").append(dataDiv);
+
+        // dataDiv.textContent = data.message;
+      })
     });
   };
 
