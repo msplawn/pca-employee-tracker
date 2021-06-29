@@ -4,20 +4,23 @@ const Schema = mongoose.Schema;
 
 // model for users
 const stormSchema = new Schema({
-  name: {
+  stormName: {
     type: String,
     min: 6,
     required: true,
-    },
-    date: {
-        type: String,
-    },
-    supervisor: {
-        type: String,
-    },
-    teamLeader: {
-        type: String,
-    },
+  },
+  // date: {
+  //     type: String,
+  // },
+  utilityName: {
+    type: String
+  },
+  supervisor: {
+    type: String,
+  },
+  teamLeader: {
+    type: String,
+  },
   //referencing shifts inside of a storm
   shifts: [
     {
@@ -26,7 +29,7 @@ const stormSchema = new Schema({
     },
   ],
 }, {
-    timestamps: true,
+  timestamps: true,
 });
 
 // exporting model to be used in other parts of the application
