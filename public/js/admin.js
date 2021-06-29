@@ -15,19 +15,24 @@ $(document).ready(() => {
     $("#submit-employee").on("click", () => {
 
       let newEmployeeData = {};
-      newEmployeeData.userName = $('#username').val();
+      newEmployeeData.username = $('#username').val();
       newEmployeeData.password = $('#password').val();
       newEmployeeData.firstName = $('#first-name').val();
       newEmployeeData.lastName = $('#last-name').val();
       newEmployeeData.equipmentDescription = $('#equipment-description').val();
       newEmployeeData.equipmentNumber = $('#equipment-number').val();
-      newEmployeeData.personalVehicle = $('#personal-vehicle').val();
+
+      if ($('#personal-vehicle').val() === "on") {
+        newEmployeeData.personalVehicle = true
+      } else {
+        console.log("FAILUREEEEE")
+      }
 
       console.log("LOG DATA:", newEmployeeData);
       // $("#clock-in").removeClass();
       // $("main").addClass("hide");
 
-      fetch("/api/data/user", {
+      fetch("/api/user/signup", {
         method: "post",
         body: JSON.stringify(newEmployeeData),
         headers: {
@@ -50,9 +55,28 @@ $(document).ready(() => {
     })
   }
 
+  const newStormInput = () => {
+    $('#storm-modal').modal('show');
+
+    $("#submit-storm").on("click", () => {
+
+      let newStormData = {};
+      newStormData.stormName = $('#storm-name').val();
+      newStormData.utilityName = $('#utility-name').val();
+      newStormData.supervisorName = $('#supervisor-name').val();
+      newStormData.teamLeaderName = $('#team-leader-name').val();
+   
+      console.log(newStormData);
+    });
+  };
+
   $("#new-employee").click(() => {
-    console.log("hello");
     newEmployeeInput();
+  })
+
+  $("#new-storm").click(() => {
+    console.log("hello");
+    newStormInput();
   })
 
 });

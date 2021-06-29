@@ -22,7 +22,7 @@
       <div class="item header">
         Storms
       </div>
-      <a class="item">
+      <a class="item" id="new-storm">
         Create New Storm
       </a>
       <a class="item" id="new-employee">
@@ -123,7 +123,7 @@
     </div>
 
     <!-- New Storm Modal -->
-    <!-- <div class="ui modal">
+    <div class="ui modal" id="storm-modal">
       <i class="close icon"></i>
       <div class="header modal-header">
         Create New Storm
@@ -135,11 +135,11 @@
             <div class="two fields">
               <div class="field">
                 <label>Storm Name</label>
-                <input placeholder="Storm" type="text">
+                <input placeholder="Storm" type="text" id="storm-name">
               </div>
               <div class="field">
                 <label>Utility Name</label>
-                <input placeholder="Utility" type="text">
+                <input placeholder="Utility" type="text" id="utility-name">
               </div>
             </div>
           </div> 
@@ -147,23 +147,23 @@
             <div class="two fields">
               <div class="field">
                 <label>Supervisor</label>
-                <input placeholder="Supervisor" type="text">
+                <input placeholder="Supervisor" type="text" id="supervisor-name">
               </div>
               <div class="field">
                 <label>Team Leader</label>
-                <input placeholder="Team Leader" type="text">
+                <input placeholder="Team Leader" type="text" id="team-leader-name">
               </div>
             </div>
           </div>        
         </div>
       </div>
       <div class="actions">
-        <div class="ui gray right labeled icon button">
+        <div class="ui gray right labeled icon button" id="submit-storm">
           Submit
           <i class="checkmark icon"></i>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <!-- New Employee Modal -->
     <div class="ui modal">
