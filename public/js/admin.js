@@ -61,7 +61,7 @@ $(document).ready(() => {
   // ;
   
   const newEmployeeInput = () => {
-    $('.ui.modal').modal('show');
+    $('#employee-modal').modal('show');
     $('.ui.checkbox').checkbox();
 
     $("#submit-employee").on("click", () => {
