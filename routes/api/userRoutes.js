@@ -12,7 +12,6 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 }); 
 
 // Morgan attempting to mimic dataRoutes.js
-
 const {
   createUser, getAllUsers
 } = require('../../controllers/adminController');
