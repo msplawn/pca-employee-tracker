@@ -17,6 +17,7 @@ const passport = require("passport");
   router.route('/user').post(createUser);
 
   router.route('/user').get(getAllUsers)
+  
 // Below are Sam's previously used routes
 
 //   router.post(
