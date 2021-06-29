@@ -23,17 +23,29 @@ const User = new Schema({
     type: String,
     required: true,
   },
-  //referencing a users shifts
-  shifts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Shift",
-    },
-  ],
-  admin: {
-    type: Boolean,
-    default: false,
+  equipmentDescription: {
+    type: String,
+    required: true,
   },
+  equipmentNumber: {
+    type: Number,
+    required: true,
+  },
+  personalVehicle: {
+    type: Boolean,
+    required: true,
+  }
+  //referencing a users shifts
+  // shifts: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Shift",
+  //   },
+  // ],
+  // admin: {
+  //   type: Boolean,
+  //   default: false,
+  // },
 });
 
 User.plugin(passportLocalMongoose);

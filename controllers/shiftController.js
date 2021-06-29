@@ -30,6 +30,7 @@ const shiftController = {
   
   async createShift(req, res) {
     try {
+      console.log("creating shift")
       const dbShiftData = await Shift.create(req.body);
 
       await User.findOneAndUpdate(
@@ -53,7 +54,7 @@ const shiftController = {
   },
     async getAllShifts(req, res) { 
         try {
-          let dbShiftData = await Shift.findAll()
+          let dbShiftData = await Shift.find()
           res.json(dbShiftData)
         } catch (err) {
             console.log(err);
@@ -63,7 +64,7 @@ const shiftController = {
   async getAllUsers(req, res) {
       try {
         let dbUserData = await User.findAll();
-        res.json(dbShiftData);
+        res.json(dbUserData);
       } catch (err) {
         console.log(err);
         res.status(500).json(err);
