@@ -17,6 +17,7 @@ const {
 } = require('../../controllers/adminController');
 
 router.route('/new').post(createUser).get(getAllUsers);
+router.route('/employees').get(getAllUsers);
 
 // Below are Sam's previously used routes
 

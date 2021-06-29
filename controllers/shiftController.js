@@ -78,6 +78,18 @@ const shiftController = {
       console.log(err);
       res.status(500).json(err);
     }
+  },
+  async deleteStorm(req, res) {
+    Storm.findOneAndRemove({ _id: req.params.stormId })
+    .then(dbStormData => {
+      if (!dbStormData) {
+        return res.status(404).json({ message: 'No storm with this id!' });
+      }
+
+      res.json({ message: 'Storm successfully deleted!' });
+      
+    })
+
   }
 };
 
