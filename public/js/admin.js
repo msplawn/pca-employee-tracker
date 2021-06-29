@@ -32,7 +32,7 @@ $(document).ready(() => {
       // $("#clock-in").removeClass();
       // $("main").addClass("hide");
 
-      fetch("/api/user/signup", {
+      fetch("/api/user/new", {
         method: "post",
         body: JSON.stringify(newEmployeeData),
         headers: {

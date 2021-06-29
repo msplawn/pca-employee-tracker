@@ -6,7 +6,7 @@ const adminController = {
         try {
             console.log("creating employee")
             const dbUserData = await User.create(req.body);
-
+            console.log(dbUserData);
             res.json({ message: "new employee added" })
         } catch (err) {
             console.log(err);
@@ -17,7 +17,7 @@ const adminController = {
     async getAllUsers(req, res) {
         try {
             console.log("creating employee")
-            const dbUserData = await User.findAll();
+            const dbUserData = await User.find();
             res.json(dbUserData)
         } catch (err) {
             console.log(err);

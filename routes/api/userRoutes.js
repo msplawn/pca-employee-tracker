@@ -13,13 +13,11 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 
 // Morgan attempting to mimic dataRoutes.js
 
-// const {
-//   createUser, getAllUsers
-// } = require('../../controllers/adminController');
+const {
+  createUser, getAllUsers
+} = require('../../controllers/adminController');
 
-// router.route('/user').post(createUser);
-
-// router.route('/user').get(getAllUsers)
+router.route('/new').post(createUser).get(getAllUsers);
 
 // Below are Sam's previously used routes
 
@@ -36,38 +34,39 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 //     }
 //   );
 
-//   // Route for signing up a user.
-router.post("/signup", (req, res, next) => {
-  // console.log(req)
-  User.register(
-    new User({
-      username: req.body.username,
-      password: req.body.password
-    }),
-    function (err) {
-      if (err) {
-        console.log("error while user register!", err);
-        return next(err);
-      }
+// //   // Route for signing up a user.
+// router.post("/signup", (req, res, next) => {
+//   // console.log(req)
+//   User.register(
+//     new User({
+//       username: req.body.username,
+//       password: req.body.password
+//     }),
+//     function (err) {
+//       if (err) {
+//         console.log("error while user register!", err);
+//         return next(err);
+//       }
 
-      console.log("user registered!");
+//       console.log("user registered!");
 
-      res.redirect("/");
-    }
-  );
-  User.create(req.body)
-    .then(function () {
-      res.redirect(307, "/api/user/login");
-    })
-    .catch(function (err) {
-      res.status(401).json(err);
-    });
-});
+//       res.redirect("/");
+//     }
+//   );
+//   User.create(req.body)
+//     .then(function () {
+//       res.redirect(307, "/api/user/login");
+//     })
+//     .catch(function (err) {
+//       res.status(401).json(err);
+//     });
+// });
 
-router.get('/signup', (req, res) => {
-  let dbUserData = User.find()
-  res.json(dbUserData)
-})
+// router.get('/signup', (req, res) => {
+//   let dbUserData = User.find()
+//   res.json(dbUserData)
+// })
+
 //   // Route for logging user out
 //   router.get("/logout", (req, res) => {
 //     req.logout();
