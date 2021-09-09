@@ -34,14 +34,14 @@ const User = new Schema({
   personalVehicle: {
     type: Boolean,
     required: true,
-  }
+  },
   //referencing a users shifts
-  // shifts: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Shift",
-  //   },
-  // ],
+  shifts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Shift",
+    },
+  ],
   // admin: {
   //   type: Boolean,
   //   default: false,

@@ -13,6 +13,7 @@ $(document).ready(() => {
       logData.end = $('#end-drop').dropdown('get value');
       logData.utilityMeals = $('#utility-meal-drop').dropdown('get value');
       logData.perDiemMeals = $('#per-diem-meal-drop').dropdown('get value');
+      // logData.userId = 
       
       console.log("LOG DATA:", logData);
       $("#clock-in").removeClass();
@@ -37,7 +38,7 @@ $(document).ready(() => {
         dataDiv.textContent = data.message;
       })
       // clockIn();
-      // api.addShift(logData);
+      .addShift(logData);
     })
   }
   
