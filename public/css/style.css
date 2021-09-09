@@ -67,3 +67,17 @@ a {
 .hide {
   display: none;
 }
+
+.gray-bkg {
+  background-color: rgb(219, 219, 219);
+  padding-bottom: 10px;
+}
+
+.em-form {
+  padding: 0px !important;
+}
+
+.field {
+  margin: 10px 14px !important;
+  padding-top: 4px;
+}
