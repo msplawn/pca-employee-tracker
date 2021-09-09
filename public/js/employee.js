@@ -1,7 +1,17 @@
 $(document).ready(() => {
   $('.ui.dropdown')
   .dropdown();
-  
+
+  $('#calendar').calendar().click(() => console.log('word'))
+  // ({
+  //   type: 'date'
+    // formatter: {
+    //   dayHeader: () => ({
+    //     type: "date",
+    //   })
+    // }
+  // });
+    
   const userInput = () => {
     $("#log-submit").on("click", () => {
       
