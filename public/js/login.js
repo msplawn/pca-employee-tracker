@@ -3,4 +3,9 @@ $("#submit").on("click", () => {
     const password = $("#password").val();
 
     console.log(username, password);
+
+    fetch("/api/user/login")
+    .then(res => {
+        console.log(res);
+    })
 })

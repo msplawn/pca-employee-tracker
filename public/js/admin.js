@@ -21,19 +21,27 @@ $(document).ready(() => {
         <i class="file alternative outline icon"></i>
         <div class="content">
           <div class="header">
-            <a>${storm.stormName}</a>
+            <a class="storm-val" value="${storm._id}">${storm.stormName}</a>
           </div>
             February 2021
         </div>
-        <i class="trash alternate outline icon" id="delete-storm"></i>
+        <div>
+          <i value="${storm._id}" class="delete-storm trash alternate outline icon"></i>
+        </div>
       </div>
       `
       $('#stormsEl').append(stormContainer);
 
     });
+  });
+
+
+
     // Attempting to delete storms on icon click
-      $('#delete-storm').on("click", () => {
-        console.log("Trash")
+      $(document).on("click", '.delete-storm', (evt) => {
+        evt.preventDefault();
+        console.log(evt.target)
+        // console.log($(this).siblings(".content").children(".header").children(".storm-val"))
         fetch("/api/shift/storm:stormId", {
           method: "delete",
           // body: JSON.stringify(newEmployeeData),
@@ -43,14 +51,15 @@ $(document).ready(() => {
           }
         })
           .then(response => {
+            console.log("hiiii")
             return response.json();
           })
           .then(data => {
             console.log(data)
           })
       })
-  });
 
+  
   //   $('.ui.modal')
   //   .modal('show')
   // ;
