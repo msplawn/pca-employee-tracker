@@ -1,74 +1,64 @@
 $(document).ready(() => {
 
   //Populates Storms From Database
-  fetch("/api/data/storms" , {
+  fetch("/api/data/storm", {
     method: "get",
     headers: {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json"
     }
   })
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    console.log(data)
-    data.forEach(storm => {
-      console.log(storm.stormName);
-      
-      const stormContainer = `
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data)
+      data.forEach(storm => {
+        console.log(storm.stormName);
+
+        const stormContainer = `
       <div class="item">
-        <i class="file alternative outline icon"></i>
         <div class="content">
           <div class="header">
             <a class="storm-val" value="${storm._id}">${storm.stormName}</a>
           </div>
             February 2021
         </div>
-        <div>
-          <i value="${storm._id}" class="delete-storm trash alternate outline icon"></i>
-        </div>
+        <form>
+          <i type="submit" value="${storm._id}" class="delete-storm trash alternate outline icon" action="/api/data/storm/${storm._id}"></i>
+        </form>
       </div>
       `
-      $('#stormsEl').append(stormContainer);
+        $('#stormsEl').append(stormContainer);
 
+      });
     });
-  });
 
 
 
-    // Attempting to delete storms on icon click
-      $(document).on("click", '.delete-storm', (evt) => {
-        evt.preventDefault();
-        console.log(evt.target)
-        // console.log($(this).siblings(".content").children(".header").children(".storm-val"))
-        fetch("/api/shift/storm:stormId", {
-          method: "delete",
-          // body: JSON.stringify(newEmployeeData),
-          headers: {
-            Accept: "application/json, text/plain, */*",
-            "Content-Type": "application/json"
-          }
-        })
-          .then(response => {
-            console.log("hiiii")
-            return response.json();
-          })
-          .then(data => {
-            console.log(data)
-          })
+  // Attempting to delete storms on icon click
+  $(document).on("click", '.delete-storm', (evt) => {
+    let oldStormId = evt.currentTarget.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].getAttribute("value")
+    // oldStorm = oldStorm.replace(/ /g, "-").toLowerCase();
+    console.log(oldStormId)
+    // console.log($(this).siblings(".content").children(".header").children(".storm-val"))
+    fetch(`/api/data/storm/:${oldStormId}`, {
+      method: "delete",
+      // body: JSON.stringify(newEmployeeData),
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        console.log(response)
+        return response.json();
       })
+      .then(data => {
+        console.log(data)
+      })
+  })
 
-  
-  //   $('.ui.modal')
-  //   .modal('show')
-  // ;
-
-  
-  // $('.ui.longer.modal')
-  //   .modal('show')
-  // ;
-  
   const newEmployeeInput = () => {
     $('#employee-modal').modal('show');
     $('.ui.checkbox').checkbox();
@@ -113,7 +103,49 @@ $(document).ready(() => {
         })
       // clockIn();
       // api.addShift(logData);
+      viewEmployees();
+
     })
+  }
+
+  const viewEmployees = () => {
+    $('#employee-modal').modal('hide');
+    $('.storm-container').addClass('hide');
+    $('.employee-container').removeClass('hide');
+
+    fetch("/api/user/employees", {
+      method: "get",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        console.log(response);
+        return response.json();
+      })
+      .then(data => {
+        console.log(data)
+        data.forEach(employee => {
+          console.log(employee);
+
+          const employeeContainer = `
+        <div class="item">
+          <div class="content">
+            <div class="header">
+              <a class="storm-val" value="${employee._id}">${employee.username}</a>
+            </div>
+              Password: ${employee.password};
+          </div>
+          <div>
+            <i value="${employee._id}" class="delete-employee trash alternate outline icon"></i>
+          </div>
+        </div>
+        `
+          $('#employeeEl').append(employeeContainer);
+
+        });
+      });
   }
 
   const newStormInput = () => {
@@ -126,10 +158,10 @@ $(document).ready(() => {
       newStormData.utilityName = $('#utility-name').val();
       newStormData.supervisor = $('#supervisor-name').val();
       newStormData.teamLeader = $('#team-leader-name').val();
-   
+
       console.log(newStormData);
 
-      fetch("/api/data/storm" , {
+      fetch("/api/data/storm", {
         method: "post",
         body: JSON.stringify(newStormData),
         headers: {
@@ -137,13 +169,13 @@ $(document).ready(() => {
           "Content-Type": "application/json"
         }
       })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data)
-        location.reload();
-      })
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          console.log(data)
+          location.reload();
+        })
     });
   };
 
