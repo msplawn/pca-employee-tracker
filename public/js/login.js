@@ -6,7 +6,7 @@ $("#submit").on("click", () => {
 
     console.log(username, password);
 
-    fetch("/api/user/login")
+    fetch("/api/user/login", (req, res, ))
     .then(res => {
         console.log(res);
     })

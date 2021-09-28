@@ -42,7 +42,7 @@ $(document).ready(() => {
     // oldStorm = oldStorm.replace(/ /g, "-").toLowerCase();
     console.log(oldStormId)
     // console.log($(this).siblings(".content").children(".header").children(".storm-val"))
-    fetch(`/api/data/storm/:${oldStormId}`, {
+    fetch(`/api/data/storm/${oldStormId}`, {
       method: "delete",
       // body: JSON.stringify(newEmployeeData),
       headers: {
