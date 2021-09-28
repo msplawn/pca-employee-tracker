@@ -4,11 +4,13 @@ const passport = require("passport");
 
 // Using the passport.authenticate middleware with our local strategy.
 router.post("/login", passport.authenticate("local"), (req, res) => {
-  console.log(req)
+  console.log("post hit")
+  console.log(req.user)
   res.json({
     username: req.user.username,
     id: req.user.id,
   });
+  
 }); 
 
 // Morgan attempting to mimic dataRoutes.js
