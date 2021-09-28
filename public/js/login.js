@@ -1,3 +1,5 @@
+const bcrypt = require("bcrypt")
+
 $("#submit").on("click", () => {
     const username = $("#username").val();
     const password = $("#password").val();
