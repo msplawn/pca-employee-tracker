@@ -7,6 +7,7 @@ $("#submit").on("click", () => {
     const data = { username: username, password: password };
     console.log(username, password);
 
+
     fetch("/api/user/login", {
       method: "POST",
       headers: {
@@ -19,4 +20,5 @@ $("#submit").on("click", () => {
       console.log(res);
         window.location.href = "/employee";
     });
+
 })
