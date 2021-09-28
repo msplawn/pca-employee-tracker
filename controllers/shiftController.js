@@ -80,8 +80,8 @@ const shiftController = {
     }
   },
   async deleteStorm(req, res) {
-    console.log(req)
-    await Storm.findOneAndRemove({ _id: req.params.stormId })
+    console.log(req.params.id)
+    await Storm.findOneAndRemove({ _id: req.params.id })
     .then(dbStormData => {
       if (!dbStormData) {
         return res.status(404).json({ message: 'No storm with this id!' });
