@@ -106,11 +106,6 @@ $(document).ready(() => {
     })
   }
   
-  $(document).on("click", ".delete-employee", evt => {
-    console.log("hello")
-    // let employeeId = 
-  })
-
   const viewEmployees = () => {
     $('#employee-modal').modal('hide');
     $('.storm-container').addClass('hide');
@@ -177,7 +172,6 @@ $(document).ready(() => {
     $("#submit-storm").on("click", () => {
 
       let newStormData = {};
-      newStormData.empty();
       newStormData.stormName = $('#storm-name').val();
       newStormData.utilityName = $('#utility-name').val();
       newStormData.supervisor = $('#supervisor-name').val();
