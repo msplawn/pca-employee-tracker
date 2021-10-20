@@ -21,17 +21,44 @@ const shiftSchema = new Schema(
       type: String,
       required: true,
     },
-    workType: {
+    workType1: {
       type: String,
       required: true,
     },
-    start: {
+    workType2: {
+      type: String
+    },
+    workType3: {
+      type: String
+    },
+    workType4: {
+      type: String
+    },
+    start1: {
       type: String,
       required: true,
     },
-    end: {
+    start2: {
+      type: String,
+    },
+    start3: {
+      type: String,
+    },
+    start4: {
+      type: String,
+    },
+    end1: {
       type: String,
       required: true,
+    },
+    end2: {
+      type: String,
+    },
+    end3: {
+      type: String,
+    },
+    end4: {
+      type: String,
     },
     utilityMeals: {
       type: Number,
@@ -44,6 +71,9 @@ const shiftSchema = new Schema(
   },
   {
     timestamps: true,
+  },
+  {
+    typeKey: "$type"    
   }
 );
 

@@ -35,6 +35,7 @@ $(document).ready(() => {
             <i type="submit" value="${storm._id}" class="delete-storm trash alternate outline icon" action="/api/data/storm/${storm._id}"></i>
           </form>
         </div>
+
         `
           $('#stormsEl').append(stormContainer);
   
@@ -78,7 +79,7 @@ $(document).ready(() => {
       if ($('#personal-vehicle').val() === "on") {
         newEmployeeData.personalVehicle = true
       } else {
-        console.log("FAILUREEEEE")
+        newEmployeeData.personalVehicle = false
       }
 
       console.log("LOG DATA:", newEmployeeData);
@@ -96,6 +97,7 @@ $(document).ready(() => {
         })
         .then(data => {
           console.log(data)
+
         })
       // clockIn();
       // api.addShift(logData);
@@ -103,6 +105,11 @@ $(document).ready(() => {
 
     })
   }
+  
+  $(document).on("click", ".delete-employee", evt => {
+    console.log("hello")
+    // let employeeId = 
+  })
 
   const viewEmployees = () => {
     $('#employee-modal').modal('hide');
@@ -170,6 +177,7 @@ $(document).ready(() => {
     $("#submit-storm").on("click", () => {
 
       let newStormData = {};
+      newStormData.empty();
       newStormData.stormName = $('#storm-name').val();
       newStormData.utilityName = $('#utility-name').val();
       newStormData.supervisor = $('#supervisor-name').val();
@@ -190,16 +198,19 @@ $(document).ready(() => {
         })
         .then(data => {
           console.log(data)
+
           // location.reload();
           $('#storm-modal').modal('hide');
 
           viewStorms();
+
         })
     });
   };
 
   $("#new-employee").click(() => {
-    newEmployeeInput();
+    const newEmployee = newEmployeeInput();
+    console.log(newEmployee);
   })
 
   $("#new-storm").click(() => {
