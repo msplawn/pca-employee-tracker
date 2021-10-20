@@ -44,7 +44,6 @@ $(document).ready(() => {
     // console.log($(this).siblings(".content").children(".header").children(".storm-val"))
     fetch(`/api/data/storm/${oldStormId}`, {
       method: "delete",
-      // body: JSON.stringify(newEmployeeData),
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json"
@@ -127,7 +126,6 @@ $(document).ready(() => {
       .then(data => {
         console.log(data)
         data.forEach(employee => {
-          console.log(employee);
 
           const employeeContainer = `
         <div class="item">
@@ -145,8 +143,24 @@ $(document).ready(() => {
           $('#employeeEl').append(employeeContainer);
 
         });
+
+        $(".delete-employee").on("click", (evt) => {
+          const formerEmployeeId = evt.currentTarget.getAttribute("value");
+          
+          fetch(`/api/user/${formerEmployeeId}`, {
+            method: "delete",
+            headers: {
+              Accept: "application/json, text/plain, */*",
+              "Content-Type": "application/json"
+            }
+          })
+            .then(response => response.json())
+            .then(data => location.reload());
+        })
       });
   }
+
+  
 
   const newStormInput = () => {
     $('#storm-modal').modal('show');
@@ -184,8 +198,9 @@ $(document).ready(() => {
   })
 
   $("#new-storm").click(() => {
-    console.log("hello");
     newStormInput();
   })
+
+  $("#view-employees").click(() => viewEmployees())
 
 });
