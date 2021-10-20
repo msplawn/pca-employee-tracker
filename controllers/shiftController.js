@@ -72,7 +72,7 @@ const shiftController = {
   },
   async getAllUsers(req, res) {
     try {
-      let dbUserData = await User.findAll();
+      let dbUserData = await User.find();
       res.json(dbUserData);
     } catch (err) {
       console.log(err);
@@ -80,7 +80,8 @@ const shiftController = {
     }
   },
   async deleteStorm(req, res) {
-    Storm.findOneAndRemove({ _id: req.params.stormId })
+    console.log(req.params.id)
+    await Storm.findOneAndRemove({ _id: req.params.id })
     .then(dbStormData => {
       if (!dbStormData) {
         return res.status(404).json({ message: 'No storm with this id!' });

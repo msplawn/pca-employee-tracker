@@ -23,6 +23,23 @@ const adminController = {
             console.log(err);
             res.status(500).json(err);
         }
+    },
+
+    async deleteEmployee(req, res) {
+        try {
+            console.log("deleting employee")
+            await User.findOneAndRemove({ _id: req.params.id })
+            .then(dbStormData => {
+                if (!dbStormData) {
+                    return res.status(404).json({ message: 'No user with this id!' })
+                }
+
+                res.json({ message: 'User successfully deleted!'})
+            })
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err);
+        }
     }
 }
 
