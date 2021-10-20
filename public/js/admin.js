@@ -1,22 +1,22 @@
 $(document).ready(() => {
 
   //Populates Storms From Database
-  fetch("/api/data/storms" , {
+  fetch("/api/data/storms", {
     method: "get",
     headers: {
       Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json"
     }
   })
-  .then(response => {
-    return response.json();
-  })
-  .then(data => {
-    console.log(data)
-    data.forEach(storm => {
-      console.log(storm.stormName);
-      
-      const stormContainer = `
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data)
+      data.forEach(storm => {
+        console.log(storm.stormName);
+
+        const stormContainer = `
       <div class="item">
         <i class="file alternative outline icon"></i>
         <div class="content">
@@ -30,45 +30,45 @@ $(document).ready(() => {
         </div>
       </div>
       `
-      $('#stormsEl').append(stormContainer);
+        $('#stormsEl').append(stormContainer);
 
+      });
     });
-  });
 
 
 
-    // Attempting to delete storms on icon click
-      $(document).on("click", '.delete-storm', (evt) => {
-        evt.preventDefault();
-        console.log(evt.target)
-        // console.log($(this).siblings(".content").children(".header").children(".storm-val"))
-        fetch("/api/shift/storm:stormId", {
-          method: "delete",
-          // body: JSON.stringify(newEmployeeData),
-          headers: {
-            Accept: "application/json, text/plain, */*",
-            "Content-Type": "application/json"
-          }
-        })
-          .then(response => {
-            console.log("hiiii")
-            return response.json();
-          })
-          .then(data => {
-            console.log(data)
-          })
+  // Attempting to delete storms on icon click
+  $(document).on("click", '.delete-storm', (evt) => {
+    evt.preventDefault();
+    console.log(evt.target)
+    // console.log($(this).siblings(".content").children(".header").children(".storm-val"))
+    fetch("/api/shift/storm:stormId", {
+      method: "delete",
+      // body: JSON.stringify(newEmployeeData),
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        console.log("hiiii")
+        return response.json();
       })
+      .then(data => {
+        console.log(data)
+      })
+  })
 
-  
+
   //   $('.ui.modal')
   //   .modal('show')
   // ;
 
-  
+
   // $('.ui.longer.modal')
   //   .modal('show')
   // ;
-  
+
   const newEmployeeInput = () => {
     $('#employee-modal').modal('show');
     $('.ui.checkbox').checkbox();
@@ -86,7 +86,7 @@ $(document).ready(() => {
       if ($('#personal-vehicle').val() === "on") {
         newEmployeeData.personalVehicle = true
       } else {
-        console.log("FAILUREEEEE")
+        newEmployeeData.personalVehicle = false
       }
 
       console.log("LOG DATA:", newEmployeeData);
@@ -110,11 +110,17 @@ $(document).ready(() => {
           // $("#test").append(dataDiv);
 
           // dataDiv.textContent = data.message;
+          console.log("data._id");
         })
       // clockIn();
       // api.addShift(logData);
     })
   }
+  
+  $(document).on("click", ".delete-employee", evt => {
+    console.log("hello")
+    // let employeeId = 
+  })
 
   const newStormInput = () => {
     $('#storm-modal').modal('show');
@@ -122,14 +128,15 @@ $(document).ready(() => {
     $("#submit-storm").on("click", () => {
 
       let newStormData = {};
+      newStormData.empty();
       newStormData.stormName = $('#storm-name').val();
       newStormData.utilityName = $('#utility-name').val();
       newStormData.supervisor = $('#supervisor-name').val();
       newStormData.teamLeader = $('#team-leader-name').val();
-   
+
       console.log(newStormData);
 
-      fetch("/api/data/storm" , {
+      fetch("/api/data/storm", {
         method: "post",
         body: JSON.stringify(newStormData),
         headers: {
@@ -137,18 +144,19 @@ $(document).ready(() => {
           "Content-Type": "application/json"
         }
       })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data)
-        location.reload();
-      })
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          console.log(data)
+          location.reload();
+        })
     });
   };
 
   $("#new-employee").click(() => {
-    newEmployeeInput();
+    const newEmployee = newEmployeeInput();
+    console.log(newEmployee);
   })
 
   $("#new-storm").click(() => {
