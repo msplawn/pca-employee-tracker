@@ -15,11 +15,12 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
 
 // Morgan attempting to mimic dataRoutes.js
 const {
-  createUser, getAllUsers
+  createUser, getAllUsers, deleteEmployee
 } = require('../../controllers/adminController');
 
 router.route('/new').post(createUser).get(getAllUsers);
 router.route('/employees').get(getAllUsers);
+router.route('/:id').delete(deleteEmployee)
 
 // Below are Sam's previously used routes
 
