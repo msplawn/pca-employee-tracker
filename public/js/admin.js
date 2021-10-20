@@ -1,38 +1,46 @@
 $(document).ready(() => {
 
   //Populates Storms From Database
-  fetch("/api/data/storm", {
-    method: "get",
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json"
-    }
-  })
-    .then(response => {
-      return response.json();
+  const viewStorms = () => {
+    console.log("click")
+    $('.storm-container').removeClass('hide');
+    $('.employee-container').addClass('hide');
+
+    fetch("/api/data/storm", {
+      method: "get",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      }
     })
-    .then(data => {
-      console.log(data)
-      data.forEach(storm => {
-        console.log(storm.stormName);
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data)
+        $('#stormsEl').empty();
 
-        const stormContainer = `
-      <div class="item">
-        <div class="content">
-          <div class="header">
-            <a class="storm-val" value="${storm._id}">${storm.stormName}</a>
+        data.forEach(storm => {
+          console.log(storm.stormName);
+  
+          const stormContainer = `
+        <div class="item">
+          <div class="content">
+            <div class="header">
+              <a class="storm-val" value="${storm._id}">${storm.stormName}</a>
+            </div>
+              February 2021
           </div>
-            February 2021
+          <form>
+            <i type="submit" value="${storm._id}" class="delete-storm trash alternate outline icon" action="/api/data/storm/${storm._id}"></i>
+          </form>
         </div>
-        <form>
-          <i type="submit" value="${storm._id}" class="delete-storm trash alternate outline icon" action="/api/data/storm/${storm._id}"></i>
-        </form>
-      </div>
-      `
-        $('#stormsEl').append(stormContainer);
-
+        `
+          $('#stormsEl').append(stormContainer);
+  
+        });
       });
-    });
+  }
 
 
 
@@ -49,13 +57,8 @@ $(document).ready(() => {
         "Content-Type": "application/json"
       }
     })
-      .then(response => {
-        console.log(response)
-        return response.json();
-      })
-      .then(data => {
-        console.log(data)
-      })
+      .then(response => response.json())
+      .then(data => location.reload());
   })
 
   const newEmployeeInput = () => {
@@ -79,8 +82,6 @@ $(document).ready(() => {
       }
 
       console.log("LOG DATA:", newEmployeeData);
-      // $("#clock-in").removeClass();
-      // $("main").addClass("hide");
 
       fetch("/api/user/new", {
         method: "post",
@@ -95,10 +96,6 @@ $(document).ready(() => {
         })
         .then(data => {
           console.log(data)
-          // const dataDiv = document.createElement("div");
-          // $("#test").append(dataDiv);
-
-          // dataDiv.textContent = data.message;
         })
       // clockIn();
       // api.addShift(logData);
@@ -111,6 +108,7 @@ $(document).ready(() => {
     $('#employee-modal').modal('hide');
     $('.storm-container').addClass('hide');
     $('.employee-container').removeClass('hide');
+    
 
     fetch("/api/user/employees", {
       method: "get",
@@ -125,6 +123,7 @@ $(document).ready(() => {
       })
       .then(data => {
         console.log(data)
+        $('#employeeEl').empty();
         data.forEach(employee => {
 
           const employeeContainer = `
@@ -145,6 +144,7 @@ $(document).ready(() => {
         });
 
         $(".delete-employee").on("click", (evt) => {
+          evt.preventDefault();
           const formerEmployeeId = evt.currentTarget.getAttribute("value");
           
           fetch(`/api/user/${formerEmployeeId}`, {
@@ -155,12 +155,14 @@ $(document).ready(() => {
             }
           })
             .then(response => response.json())
-            .then(data => location.reload());
+            .then(data => {
+              // $('.employee-container').innerHTML("");
+              viewEmployees();
+              // location.reload();
+            });
         })
       });
   }
-
-  
 
   const newStormInput = () => {
     $('#storm-modal').modal('show');
@@ -188,7 +190,10 @@ $(document).ready(() => {
         })
         .then(data => {
           console.log(data)
-          location.reload();
+          // location.reload();
+          $('#storm-modal').modal('hide');
+
+          viewStorms();
         })
     });
   };
@@ -201,6 +206,10 @@ $(document).ready(() => {
     newStormInput();
   })
 
-  $("#view-employees").click(() => viewEmployees())
+  $("#view-employees").click(() => viewEmployees());
+
+  $("#view-storms").click(() => viewStorms());
+
+  viewStorms();
 
 });
