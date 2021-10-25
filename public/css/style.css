@@ -22,7 +22,7 @@ h1, .modal-header {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
-.selection, button, .sign-in, .storm-list {
+.selection, button, .sign-in, .storm-list, .input {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2) !important;
 }
 
@@ -83,11 +83,26 @@ a {
 }
 
 .input {
-  
+  border-radius: 5px;
+  max-width: 500px;
 }
 
-#calendar {
-  /* margin-top: 10%;
-  margin-left: 10%; */
+#clock-in {
+  color: rgb(120, 120, 120) !important;
+  margin-top: 20px;
+  text-align: center;
 }
+
+#test {
+  color: rgb(160, 160, 160) !important;
+}
+
+#clock-out-btn {
+  margin-top: 10px;
+}
+
+/* #calendar {
+  margin-top: 10%;
+  margin-left: 10%;
+} */
 
