@@ -132,11 +132,12 @@ $(document).ready(() => {
         <div class="item">
           <div class="content">
             <div class="header">
-              <a class="storm-val" value="${employee._id}">${employee.username}</a>
+              ${employee.firstName} ${employee.lastName}
             </div>
               Password: ${employee.password};
           </div>
           <div>
+            <a class="storm-val" value="${employee._id}">${employee.username}</a>
             <i value="${employee._id}" class="delete-employee trash alternate outline icon"></i>
           </div>
         </div>
