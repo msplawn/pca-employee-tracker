@@ -2,15 +2,14 @@ $(document).ready(() => {
   $('.ui.dropdown')
   .dropdown();
 
-  $('#calendar').calendar().click(() => console.log('word'))
-  // ({
-  //   type: 'date'
+  $('#calendar').calendar({ type: 'date'} ).click(() => {
+    // type: 'date'
     // formatter: {
     //   dayHeader: () => ({
     //     type: "date",
-    //   })
-    // }
-  // });
+    // })
+  // }
+  });
     
   const userInput = () => {
     $("#log-submit").on("click", () => {
